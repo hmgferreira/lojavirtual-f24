@@ -1,0 +1,17 @@
+ npm create vite@latest
+
+ cd Projeto
+ npm install
+ npm run dev
+
+
+CRIAR PASTA:
+
+ - pages
+ - layouts
+ - 
+
+npm i bootstrap react-bootstrap
+
+npm i bootstrap 
+npm i react-bootstrap
