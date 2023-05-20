@@ -13,17 +13,16 @@ function App() {
 
   return (
     <>
-       
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/produtos" element={<Produtos />} />
-            <Route path="/carrinho" element={<Carrinho />} />
-            <Route path="/contato" element={<Contato />} />
-          </Routes>
-          <Footer /> 
-        </BrowserRouter>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/produtos" element={<Produtos />} />
+          <Route path="/carrinho" element={<Carrinho />} />
+          <Route path="/contato" element={<Contato />} />
+        </Routes>
+        <Footer /> 
+      </BrowserRouter>
     </>
   )
 }
