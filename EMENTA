@@ -25,3 +25,20 @@ npm i sweetalert2
 - REACT BOOTSTRAP OU MATERIAL UI
 npm i bootstrap react-bootstrap
 npm i @mui/material 
+
+
+json-server --watch db.json
+
+-----------------------------------------------
+
+
+USUARIOS - PROFESSOR
+
+CATEGORIAS - JUNIOR
+id, nome e descricao
+
+PRODUTOS - MARCOS
+id, titulo, descricao, valor, custo e quantidade.
+
+CLIENTES - IVANILDO
+id, nome, email e senha
