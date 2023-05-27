@@ -1,28 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { useNavigate, useParams } from 'react-router-dom';
+import { Formik, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 function FormUsuarios() {
 
     const navigate = useNavigate();
     const params = useParams();
     
-    const[nome, setNome] = useState('');
-    const[login, setLogin] = useState('');
-    const[senha, setSenha] = useState('');
+    const[formData, setFormData] = useState({
+        nome: '',
+        login: '',
+        senha: '',
+    });
 
-    async function salvar(){
-        const dados = {
-            nome: nome,
-            login: login,
-            senha: senha,
-        }
+    const validacaoForm = Yup.object().shape({
+        nome: Yup.string().required("Campo obrigatório").min(3, 'Minimo de caracteres nao permitido'),
+        login: Yup.string().required("Campo obrigatório").email("Email inválido")
+    });
+
+
+    async function salvar(values){
         if(params.id) {
-            await axios.put('http://localhost:3000/usuarios/'+params.id, dados);
+            await axios.put('http://localhost:3000/usuarios/'+params.id, values);
             alert("Usuario Atualizado com Sucesso");
             navigate('/admin/usuarios');
         } else {
-            await axios.post('http://localhost:3000/usuarios', dados);
+            await axios.post('http://localhost:3000/usuarios', values);
             alert("Usuario Cadsatrado com Sucesso");
             navigate('/admin/usuarios');
         }
@@ -31,22 +36,8 @@ function FormUsuarios() {
     async function getData(){
         const response = await axios.get('http://localhost:3000/usuarios/'+params.id);
         const data = response.data;
-        setNome(data.nome);
-        setLogin(data.login);
-        setSenha(data.senha);
-    }
-
-    function handleChange(evento) {
-        
-        if(evento.target.name === 'nome') {
-            setNome(evento.target.value);
-        }
-        if(evento.target.name === 'login') {
-            setLogin(evento.target.value);
-        }
-        if(evento.target.name === 'senha') {
-            setSenha(evento.target.value);
-        }
+        data.senha = '';
+        setFormData(data);
     }
 
     useEffect(() => {
@@ -57,12 +48,40 @@ function FormUsuarios() {
 
     return (
         <>
-            <form>
-                <input type="text" name="nome" value={nome} onChange={handleChange} />
-                <input type="text" name="login" value={login}  onChange={handleChange} />
-                <input type="password" name="senha" onChange={handleChange} />
-                <button type="button" onClick={salvar}>Salvar</button>
-            </form>
+
+            <Formik
+                initialValues={formData}
+                enableReinitialize
+                onSubmit={(values) => {
+                    salvar(values);
+                }}
+                validationSchema={validacaoForm}
+            >
+                {({values, handleChange, handleSubmit}) => (
+                    <form>
+                        <div>
+                            <input type="text" name="nome" value={values.nome} onChange={handleChange} className='form-control' />
+                            <span className='error'>
+                                <ErrorMessage name='nome' />
+                            </span>
+                        </div>
+                        <div>
+                            <input type="text" name="login" value={values.login} onChange={handleChange} className='form-control' />
+                            <span className='error'>
+                                <ErrorMessage name='login' />
+                            </span>
+                            
+                        </div>
+                        <div>
+                            <input type="password" name="senha" value={values.senha} onChange={handleChange} className='form-control'/>
+                            <span className='error'>
+                                <ErrorMessage name='senha' />    
+                            </span>
+                        </div>
+                        <button type="button" className='btn btn-success' onClick={handleSubmit}>Salvar</button>
+                    </form>
+                )}
+            </Formik>
         </>
     )
 }

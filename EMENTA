@@ -26,6 +26,9 @@ npm i sweetalert2
 npm i bootstrap react-bootstrap
 npm i @mui/material 
 
+FORMIK PARA FORMULARIO E YUP PARA VALIDAR
+npm i formik yup
+
 
 json-server --watch db.json
 
