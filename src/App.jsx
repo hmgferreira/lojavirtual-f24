@@ -11,6 +11,8 @@ import Contato from './pages/Clientes/Contato';
 import UsuariosAdmin from './pages/Admin/UsuariosAdmin';
 import FormUsuarios from './pages/Admin/UsuariosAdmin/FormUsuarios';
 
+import ExibirProdutos from './pages/Admin/CadastaProdutos/Index';
+import CadastraProduto from './pages/Admin/CadastaProdutos/CadastraProduto';
 // import ComponenteClass from './estudos/ComponenteClass';
 
 function App() {
@@ -30,6 +32,11 @@ function App() {
           <Route path="/admin/usuarios" element={<UsuariosAdmin />} />
           <Route path="/admin/usuarios/novo" element={<FormUsuarios />} />
           <Route path="/admin/usuarios/edit/:id" element={<FormUsuarios />} />
+
+          <Route path="/admin/produtos" element={<ExibirProdutos />} />
+          <Route path="/admin/produtos/Cadastraprodutos" element={<CadastraProduto />} />
+          <Route path="/admin/produtos/edit/:id" element={<CadastraProduto />} />
+
         </Routes>
         <Footer /> 
       </BrowserRouter>
