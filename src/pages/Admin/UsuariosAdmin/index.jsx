@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Api from '../../../config/Api';
 
 function UsuariosAdmin() {
 
@@ -10,10 +11,10 @@ function UsuariosAdmin() {
 
     async function getData() {
         if(text === '') {
-            const response = await axios.get("http://localhost:3000/usuarios");
+            const response = await Api.get("usuarios");
             setList(response.data);    
         } else {
-            const response = await axios.get("http://localhost:3000/usuarios?nome_like="+text);
+            const response = await Api.get("usuarios?nome_like="+text);
             setList(response.data);
         }
     }
@@ -25,7 +26,7 @@ function UsuariosAdmin() {
     async function excluirItem(id) {
         const check = confirm("Deseja deletar?");
         if(check) {
-            await axios.delete('http://localhost:3000/usuarios/'+id);
+            await Api.delete('suarios/'+id);
             alert("Registro Deletado com Sucesso");
             getData();
         }   

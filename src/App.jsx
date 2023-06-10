@@ -16,13 +16,13 @@ import FormUsuarios from './pages/Admin/UsuariosAdmin/FormUsuarios';
 import ExibirProdutos from './pages/Admin/CadastaProdutos/Index';
 import CadastraProduto from './pages/Admin/CadastaProdutos/CadastraProduto';
 import AuthContext from './contexts/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // import ComponenteClass from './estudos/ComponenteClass';
 
 function App() {
 
-  const[logado, setLogado] = useState(false);
+  const[logado, setLogado] = useState(localStorage.getItem('token') != null ? true : false);
   const routes = [
     {
       path: '/',
@@ -75,7 +75,6 @@ function App() {
   ];
 
   function getLayout(item) {
-  
     if(item.isPrivate && logado === false) {
       return <Navigate to="/login" />
     }
@@ -100,7 +99,6 @@ function App() {
 
   return (
     <AuthContext.Provider value={{ logado, setLogado }}>
-      Auth Logado: {logado ? 'True' : 'False'} <br />
       <BrowserRouter>
         <Routes>
           {routes.map((item, index) => (
