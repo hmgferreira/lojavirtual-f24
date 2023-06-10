@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route, RouterProvider, Navigate } from 'react-router-dom';
 import Header from './layouts/Header';
+import Body from './layouts/Body';
 import Footer from './layouts/Footer';
 import Menu from './layouts/Menu';
 
@@ -84,7 +85,9 @@ function App() {
       return (
         <>
           <Header />
+          <Body>
             {item.element}
+          </Body>
           <Footer />
         </>
       );

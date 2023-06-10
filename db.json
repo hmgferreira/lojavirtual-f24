@@ -3,11 +3,29 @@
     {
       "url": "https://io.convertiez.com.br/m/zleletromoveis/shop/products/images/1029/medium/smartphone-samsung-galaxy-a03-a035-64gb-lojas-zl_4039.jpg",
       "titulo": "Smartphone Samsung Galaxy A03 A035 64gb | Lojas Zl",
-      "descricao": "10",
+      "descricao": "10 Texo",
       "valor": "1000",
       "custo": "800",
       "quantidade": "55",
       "id": 2
+    },
+    {
+      "url": "https://io.convertiez.com.br/m/zleletromoveis/shop/products/images/1029/medium/smartphone-samsung-galaxy-a03-a035-64gb-lojas-zl_4039.jpg",
+      "titulo": "Smartphone Samsung Galaxy A03 A035 64gb | Lojas Zl",
+      "descricao": "10 Texo",
+      "valor": "1000",
+      "custo": "800",
+      "quantidade": "55",
+      "id": 1
+    },
+    {
+      "url": "https://io.convertiez.com.br/m/zleletromoveis/shop/products/images/1029/medium/smartphone-samsung-galaxy-a03-a035-64gb-lojas-zl_4039.jpg",
+      "titulo": "Smartphone Samsung Galaxy A03 A035 64gb | Lojas Zl",
+      "descricao": "10 Texo",
+      "valor": "1000",
+      "custo": "800",
+      "quantidade": "55",
+      "id": 3
     }
   ],
   "categorias": [],

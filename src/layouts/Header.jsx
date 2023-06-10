@@ -3,11 +3,15 @@ import Menu from './Menu';
 function Header() {
     return (
         <header style={styles.header}>
-            <div style={styles.logo}>
-                Logo
-            </div>
-            <div style={styles.menu}>
-                <Menu />
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 col-md-2">
+                        Logo
+                    </div>
+                    <div className="col-12 col-md-9">
+                        <Menu />
+                    </div>
+                </div>
             </div>
         </header>
     )
@@ -17,13 +21,6 @@ const styles = {
     header: {
         backgroundColor: 'red',
         height: '100px',
-        display: 'flex'
-    },
-    logo: {
-        width: '20%',
-    },
-    menu: {
-        width: '80%'
     }
 };
 
